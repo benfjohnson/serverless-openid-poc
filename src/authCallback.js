@@ -11,7 +11,7 @@ module.exports.authCallback = async (event, context, callback) => {
   const response = {
     statusCode: 301,
     headers: {
-      Location: process.env.APP_URL,
+      Location: process.env.LOCAL_URL,
       'Set-Cookie': `demo_access_token=${accessToken}; Path=/`,
     },
     body: null,

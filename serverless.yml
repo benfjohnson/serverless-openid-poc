@@ -21,11 +21,11 @@ provider:
   name: aws
   runtime: nodejs8.10
   environment:
-    AI_URL: ${self:custom.AI_URL}
-    AI_CLIENT: ${self:custom.AI_CLIENT}
-    AI_SECRET: ${self:custom.AI_SECRET}
-    AVATAX_URL: ${self:custom.AVATAX_URL}
-    APP_URL: ${self:custom.APP_URL}
+    AUTH_ROOT_URL: ${self:custom.AUTH_ROOT_URL}
+    AUTH_CLIENT_ID: ${self:custom.AUTH_CLIENT_ID}
+    AUTH_CLIENT_SECRET: ${self:custom.AUTH_CLIENT_SECRET}
+    AUTHENTICATED_API_URL: ${self:custom.AUTHENTICATED_API_URL}
+    LOCAL_URL: ${self:custom.LOCAL_URL}
 
 
 # you can overwrite defaults here

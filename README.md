@@ -1,10 +1,9 @@
 # Serverless OpenID POC
 
-To run:
+First, create a conf.yml file with your OpenID auth provider's relevant
+data. Then run:
 
-1. Create a conf.yml with your auth provider data
-2.
-  ```
-  npm i
-  npx serverless offline start
-  ```
+```
+npm i
+npx serverless offline start
+```

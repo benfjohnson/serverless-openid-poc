@@ -4,7 +4,7 @@ const { getToken } = require('./auth');
 
 const fetchAccount = async (token) => {
   try {
-    const res = await fetch(`${process.env.AVATAX_URL}/api/v2/utilities/ping`, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetch(`${process.env.AUTHENTICATED_API_URL}/api/v2/utilities/ping`, { headers: { Authorization: `Bearer ${token}` } });
     const { authenticatedUserName, authenticatedAccountId } = await res.json();
     return { authenticatedUserName, authenticatedAccountId };
   } catch (ex) {

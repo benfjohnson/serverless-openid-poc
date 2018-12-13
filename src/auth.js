@@ -2,10 +2,10 @@ const { Issuer } = require('openid-client');
 const cookie = require('cookie');
 
 const getIdentityClient = async () => {
-  const aiIssuer = await Issuer.discover(process.env.AI_URL);
+  const aiIssuer = await Issuer.discover(process.env.AUTH_ROOT_URL);
   const client = new aiIssuer.Client({
-    client_id: process.env.AI_CLIENT,
-    client_secret: process.env.AI_SECRET,
+    client_id: process.env.AUTH_CLIENT_ID,
+    client_secret: process.env.AUTH_CLIENT_SECRET,
   });
   return client;
 };
@@ -24,11 +24,11 @@ module.exports.auth = async (event, context, callback) => {
       statusCode: 301,
       headers: {
         Location: client.authorizationUrl({
-          redirect_uri: `${process.env.APP_URL}/auth/callback`,
+          redirect_uri: `${process.env.LOCAL_URL}/auth/callback`,
           scope: 'openid profile avatax avatax_api',
           // Nonce should NOT be static in real apps..
           nonce: 'abkldjsfkn-0S6_WzA2Mj213434',
-          client_id: process.env.AI_CLIENT,
+          client_id: process.env.AUTH_CLIENT_ID,
           response_type: 'id_token token',
           response_mode: 'form_post',
         }),
